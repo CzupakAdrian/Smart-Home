@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/00coding/repositories/Smart-Home/build/CentralUnit",
+  "command": "C:\\MinGW\\bin\\mingw32-g++.exe  @CMakeFiles/CentralUnit.dir/includes_CXX.rsp -g -std=gnu++11 -o CMakeFiles\\CentralUnit.dir\\source\\main.cpp.obj -c D:\\00coding\\repositories\\Smart-Home\\CentralUnit\\source\\main.cpp",
+  "file": "D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp"
+}
+]

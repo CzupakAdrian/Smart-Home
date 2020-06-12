@@ -1,0 +1,5 @@
+D:/00coding/repositories/Smart-Home/build/CMakeFiles/edit_cache.dir
+D:/00coding/repositories/Smart-Home/build/CMakeFiles/rebuild_cache.dir
+D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/CentralUnit.dir
+D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/edit_cache.dir
+D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/rebuild_cache.dir

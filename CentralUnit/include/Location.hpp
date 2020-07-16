@@ -1,43 +1,64 @@
 #pragma once
 
 #include "Device.hpp"
+#include "System.hpp"
 #include <memory>
 #include <string>
-#include <vector>
 #include <string_view>
-using str_view = std::experimental::string_view;
+#include <vector>
+using namespace std;
 
 namespace SH
 {
-    class Location;
-    using w_Location = std::weak_ptr<Location>;
-    using s_Location = std::shared_ptr<Location>;
-    using v_s_Location = std::vector<s_Location>;
+    using getters_params_type = const string_view &;
 
     class Location
-    {
+    { // TODO choose if it's better to use string_view or just string
     private:
-        w_Location superlocation;
-        v_s_Location sublocations;
-        v_s_Device devices;
-        std::string name;
+        // Properties
+        weak_ptr<Location> superlocation;
+        vector<shared_ptr<Location>> sublocations;
+        vector<shared_ptr<Device>> devices;
+        vector<shared_ptr<System>> systems;
+        string name;
+        template <typename cont_type>
+        auto static get_iterator_by_name(getters_params_type, cont_type &) -> cont_type::iterator;
 
     public:
-        Location(std::string name);
+
+        // Basic operations
+        Location() = delete;
+        Location(string &name);
+        Location &operator=(Location&) = delete;
         ~Location();
-        auto get_name()                     const -> str_view;
-        auto extract_devices()              const -> std::vector<str_view>;
-        auto extract_sublocations()         const -> std::vector<str_view>;
-        auto get_device(str_view &name)      const -> w_Device;
-        auto get_sublocation(str_view &name)
-                                            const -> w_Location;
-        auto get_superlocation()            const -> w_Location;
-        void add_device(s_Device &&device);
-        void add_device(s_Device &device);
-        void add_location(s_Location &&location);
-        void add_location(s_Location &location); //is it necessary?
-        void add_location(std::string &name);
-        void remove_location(str_view name);
-        void remove_device(str_view name);
+        auto get_name()             const -> string_view;
+        void change_name(const string &new_name);
+
+        // Extractors
+        auto extract_devices()      const -> vector<string_view>;
+        auto extract_sublocations() const -> vector<string_view>;
+        auto extract_systems()      const -> vector<string_view>;
+
+        // Getters
+        auto get_device(getters_params_type name)
+                                          -> weak_ptr<Device>;
+        auto get_sublocation(getters_params_type name)
+                                          -> weak_ptr<Location>;
+        auto get_system(getters_params_type name)
+                                          -> weak_ptr<System>;
+        auto get_superlocation()    const -> weak_ptr<Location>;
+
+        // Adders
+        void add_device(shared_ptr<Device> &&new_device);
+        //void add_device(shared_ptr<Device> &device); // is it necessary?
+        void add_location(shared_ptr<Location> &&new_location);
+        //void add_location(shared_ptr<Location> &location); // is it necessary?
+        void add_location(const string &name); // TODO decide what type to pass
+        void add_system(shared_ptr<System> &&new_system);
+
+        // Removers
+        void remove_location(getters_params_type name);
+        void remove_device(getters_params_type name);
+        void remove_system(getters_params_type name);
     };
 } // namespace SH

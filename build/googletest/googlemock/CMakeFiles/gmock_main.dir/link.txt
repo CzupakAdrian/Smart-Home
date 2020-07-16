@@ -1,0 +1,2 @@
+C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe qc ../../lib/libgmock_maind.a  CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj
+C:/Users/czupa/scoop/apps/gcc/current/bin/ranlib.exe ../../lib/libgmock_maind.a

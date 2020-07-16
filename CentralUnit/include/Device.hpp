@@ -1,27 +1,39 @@
+// Base class for all devices in Smart-Home system -*- C++ -*-
+
+// Copyright (C) 2020 czupakadrian@gmail.com
+
 #pragma once
 
-#include "Handler.hpp"
+#include "NetworkInterface.hpp"
+#include "Action.hpp"
+#include <map>
 #include <memory>
 #include <string>
-#include <vector>
 #include <string_view>
-using str_view = std::experimental::string_view;
+#include <vector>
+
+using namespace std;
 
 namespace SH
 {
-    class Device;
-    using w_Device = std::weak_ptr<Device>;
-    using s_Device = std::shared_ptr<Device>;
-    using v_s_Device = std::vector<s_Device>;
-    
     class Device
     {
+    private:
+        NetworkInterface network;
+        string name;
+        string type;
+        map<string, unique_ptr<Action>> actions;
+
     protected:
-        std::string name;
-        std::string type;
-        std::vector<std::unique_ptr<Handler>> handlers;
+        Device(string &name, string &type, NetworkInterface net_interface);
 
     public:
-        auto get_name() const -> str_view;
+        Device() = delete;
+        Device &operator=(Device&) = delete;
+        ~Device();
+        auto get_name() const -> string_view;
+        auto get_type() const -> string_view;
+        auto act(const string &action_name, const string &params) -> action_output;
+        void set_network_interface(NetworkInterface &&);
     };
 } // namespace SH

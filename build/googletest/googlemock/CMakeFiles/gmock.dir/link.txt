@@ -1,0 +1,2 @@
+C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe qc ../../lib/libgmockd.a  CMakeFiles/gmock.dir/src/gmock-all.cc.obj
+C:/Users/czupa/scoop/apps/gcc/current/bin/ranlib.exe ../../lib/libgmockd.a

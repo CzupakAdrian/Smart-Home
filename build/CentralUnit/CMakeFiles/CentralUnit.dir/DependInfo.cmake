@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/00coding/repositories/Smart-Home/CentralUnit/main.cpp" "D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/CentralUnit.dir/main.cpp.obj"
+  "D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp" "D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

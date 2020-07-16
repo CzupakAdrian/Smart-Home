@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CentralUnit.dir/main.cpp.obj"
+  "CMakeFiles/CentralUnit.dir/source/main.cpp.obj"
   "CentralUnit.exe"
   "CentralUnit.exe.manifest"
   "CentralUnit.pdb"

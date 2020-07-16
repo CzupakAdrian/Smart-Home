@@ -1,0 +1,2 @@
+C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe qc ../../lib/libgtest_maind.a  CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj
+C:/Users/czupa/scoop/apps/gcc/current/bin/ranlib.exe ../../lib/libgtest_maind.a

@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-
-set(CMAKE_CXX_COMPILER "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/g++.exe")
-set(CMAKE_C_COMPILER "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/gcc.exe")
-set(CMAKE_AR "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe")
-project(SmartHome VERSION 0.0)
+set(gccBinPath "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin")
+set(CMAKE_CXX_COMPILER "${gccBinPath}/g++.exe")
+set(CMAKE_C_COMPILER "${gccBinPath}/gcc.exe")
+set(CMAKE_AR "${gccBinPath}/ar.exe")
+project(SmartHome)
 
 set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 
 enable_testing()
 

@@ -1,2 +1,0 @@
-C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe qc ../../lib/libgtestd.a  CMakeFiles/gtest.dir/src/gtest-all.cc.obj
-C:/Users/czupa/scoop/apps/gcc/current/bin/ranlib.exe ../../lib/libgtestd.a

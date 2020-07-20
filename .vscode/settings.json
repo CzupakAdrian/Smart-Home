@@ -50,17 +50,16 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "bit": "cpp"
     },
     "C_Cpp.default.browse.path": [
-        "${workspaceFolder}\\**",
-        "C:\\Users\\czupa\\scoop\\apps\\gcc\\9.3.0-1\\include\\**"
+        "${workspaceFolder}\\**"
     ],
-    "C_Cpp.default.cppStandard": "gnu++20",
+    "C_Cpp.default.cppStandard": "gnu++17",
     "C_Cpp.default.cStandard": "gnu11",
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}\\**",
-        "C:\\Users\\czupa\\scoop\\apps\\gcc\\9.3.0-1\\include\\**"
+        "${workspaceFolder}\\**"
     ],
     "cmake.configureOnOpen": false
 }

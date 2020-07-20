@@ -78,18 +78,17 @@ include CentralUnit/CMakeFiles/CentralUnit.dir/progress.make
 include CentralUnit/CMakeFiles/CentralUnit.dir/flags.make
 
 CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj: CentralUnit/CMakeFiles/CentralUnit.dir/flags.make
-CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj: CentralUnit/CMakeFiles/CentralUnit.dir/includes_CXX.rsp
 CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj: ../CentralUnit/source/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:/00coding/repositories/Smart-Home/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj"
-	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/current/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CentralUnit.dir/source/main.cpp.obj -c D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:/00coding/repositories/Smart-Home/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj"
+	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CentralUnit.dir/source/main.cpp.obj -c D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp
 
 CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CentralUnit.dir/source/main.cpp.i"
-	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp > CMakeFiles/CentralUnit.dir/source/main.cpp.i
+	@echo "Preprocessing CXX source to CMakeFiles/CentralUnit.dir/source/main.cpp.i"
+	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp > CMakeFiles/CentralUnit.dir/source/main.cpp.i
 
 CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CentralUnit.dir/source/main.cpp.s"
-	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/current/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp -o CMakeFiles/CentralUnit.dir/source/main.cpp.s
+	@echo "Compiling CXX source to assembly CMakeFiles/CentralUnit.dir/source/main.cpp.s"
+	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:/00coding/repositories/Smart-Home/CentralUnit/source/main.cpp -o CMakeFiles/CentralUnit.dir/source/main.cpp.s
 
 # Object files for target CentralUnit
 CentralUnit_OBJECTS = \
@@ -100,12 +99,11 @@ CentralUnit_EXTERNAL_OBJECTS =
 
 CentralUnit/CentralUnit.exe: CentralUnit/CMakeFiles/CentralUnit.dir/source/main.cpp.obj
 CentralUnit/CentralUnit.exe: CentralUnit/CMakeFiles/CentralUnit.dir/build.make
-CentralUnit/CentralUnit.exe: CentralUnit/CMakeFiles/CentralUnit.dir/linklibs.rsp
 CentralUnit/CentralUnit.exe: CentralUnit/CMakeFiles/CentralUnit.dir/objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:/00coding/repositories/Smart-Home/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable CentralUnit.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:/00coding/repositories/Smart-Home/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable CentralUnit.exe"
 	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/cmake/3.17.3/bin/cmake.exe -E rm -f CMakeFiles/CentralUnit.dir/objects.a
 	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe cr CMakeFiles/CentralUnit.dir/objects.a @CMakeFiles/CentralUnit.dir/objects1.rsp
-	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/current/bin/g++.exe -g   -Wl,--whole-archive CMakeFiles/CentralUnit.dir/objects.a -Wl,--no-whole-archive  -o CentralUnit.exe -Wl,--out-implib,libCentralUnit.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/CentralUnit.dir/linklibs.rsp
+	cd D:/00coding/repositories/Smart-Home/build/CentralUnit && C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/g++.exe    -Wl,--whole-archive CMakeFiles/CentralUnit.dir/objects.a -Wl,--no-whole-archive  -o CentralUnit.exe -Wl,--out-implib,libCentralUnit.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 
 # Rule to build all files generated by this target.
 CentralUnit/CMakeFiles/CentralUnit.dir/build: CentralUnit/CentralUnit.exe
@@ -117,6 +115,6 @@ CentralUnit/CMakeFiles/CentralUnit.dir/clean:
 .PHONY : CentralUnit/CMakeFiles/CentralUnit.dir/clean
 
 CentralUnit/CMakeFiles/CentralUnit.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" D:/00coding/repositories/Smart-Home D:/00coding/repositories/Smart-Home/CentralUnit D:/00coding/repositories/Smart-Home/build D:/00coding/repositories/Smart-Home/build/CentralUnit D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/CentralUnit.dir/DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" D:/00coding/repositories/Smart-Home D:/00coding/repositories/Smart-Home/CentralUnit D:/00coding/repositories/Smart-Home/build D:/00coding/repositories/Smart-Home/build/CentralUnit D:/00coding/repositories/Smart-Home/build/CentralUnit/CMakeFiles/CentralUnit.dir/DependInfo.cmake
 .PHONY : CentralUnit/CMakeFiles/CentralUnit.dir/depend
 

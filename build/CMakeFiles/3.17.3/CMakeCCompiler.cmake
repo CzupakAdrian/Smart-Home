@@ -1,4 +1,4 @@
-set(CMAKE_C_COMPILER "C:/Users/czupa/scoop/apps/gcc/current/bin/gcc.exe")
+set(CMAKE_C_COMPILER "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "9.3.0")
@@ -18,10 +18,10 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 set(CMAKE_AR "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ar.exe")
-set(CMAKE_C_COMPILER_AR "C:/Users/czupa/scoop/apps/gcc/current/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "C:/Users/czupa/scoop/apps/gcc/current/bin/ranlib.exe")
-set(CMAKE_C_COMPILER_RANLIB "C:/Users/czupa/scoop/apps/gcc/current/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "C:/Users/czupa/scoop/apps/gcc/current/bin/ld.exe")
+set(CMAKE_C_COMPILER_AR "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ranlib.exe")
+set(CMAKE_C_COMPILER_RANLIB "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_COMPILER_IS_GNUCC 1)
 set(CMAKE_C_COMPILER_LOADED 1)
@@ -70,7 +70,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/czupa/scoop/apps/gcc/current/lib/gcc/x86_64-w64-mingw32/9.3.0/include;C:/Users/czupa/scoop/apps/gcc/current/include;C:/Users/czupa/scoop/apps/gcc/current/lib/gcc/x86_64-w64-mingw32/9.3.0/include-fixed;C:/Users/czupa/scoop/apps/gcc/current/x86_64-w64-mingw32/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/lib/gcc/x86_64-w64-mingw32/9.3.0/include;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/include;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/lib/gcc/x86_64-w64-mingw32/9.3.0/include-fixed;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/x86_64-w64-mingw32/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "mingw32;gcc;moldname;mingwex;pthread;advapi32;shell32;user32;kernel32;mingw32;gcc;moldname;mingwex")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "C:/Users/czupa/scoop/apps/gcc/current/lib/gcc/x86_64-w64-mingw32/9.3.0;C:/Users/czupa/scoop/apps/gcc/current/lib/gcc;C:/Users/czupa/scoop/apps/gcc/current/x86_64-w64-mingw32/lib;C:/Users/czupa/scoop/apps/gcc/current/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "C:/Users/czupa/scoop/apps/gcc/9.3.0-1/lib/gcc/x86_64-w64-mingw32/9.3.0;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/lib/gcc;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/x86_64-w64-mingw32/lib;C:/Users/czupa/scoop/apps/gcc/9.3.0-1/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

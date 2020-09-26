@@ -1,19 +1,26 @@
 {
     "configurations": [
         {
-            "name": "Win32",
+            "name": "Linux",
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:\\Users\\czupa\\scoop\\apps\\gcc\\9.3.0-1\\bin\\gcc.exe",
             "intelliSenseMode": "gcc-x64",
-            "configurationProvider": "ms-vscode.cmake-tools",
             "includePath": [
-                "${workspaceFolder}/googletest/googletest/include/gtest",
-                "${workspaceFolder}/CentralUnit/include"
-            ]
+                "${workspaceFolder}/googletest/googletest/include",
+                "${workspaceFolder}/googletest/googlemock/include",
+                "${workspaceFolder}/CentralUnit"
+            ],
+            "compilerPath": "/usr/bin/g++",
+            "configurationProvider": "vector-of-bool.cmake-tools",
+            "compilerArgs": [
+                "-Wall",
+                "-pedantic"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
         }
     ],
     "version": 4

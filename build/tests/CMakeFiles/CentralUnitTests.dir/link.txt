@@ -1,0 +1,1 @@
+/bin/g++-9  -g   CMakeFiles/CentralUnitTests.dir/test.cpp.o  -o CentralUnitTests  ../lib/libgtest_maind.a ../libCentralUnit.a ../lib/libgtestd.a -lpthread 

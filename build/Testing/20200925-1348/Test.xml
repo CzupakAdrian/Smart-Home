@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20200925-1348-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.16.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="czupak-VB"
+	OSRelease="5.4.0-48-generic"
+	OSVersion="#52-Ubuntu SMP Thu Sep 10 10:58:49 UTC 2020"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="94"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="1"
+	NumberOfPhysicalCPU="1"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="2920"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2304"
+	>
+	<Testing>
+		<StartDateTime>Sep 25 15:57 CEST</StartDateTime>
+		<StartTestTime>1601042251</StartTestTime>
+		<TestList>
+			<Test>./tests/CentralUnitTests</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>CentralUnitTests</Name>
+			<Path>./tests</Path>
+			<FullName>./tests/CentralUnitTests</FullName>
+			<FullCommandLine>/home/czupak/Coding/repositories/Smart-Home/build/tests/CentralUnitTests</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>0.0463579</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/home/czupak/Coding/repositories/Smart-Home/build/tests/CentralUnitTests</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value encoding="base64" compression="gzip">eJyNkcFOhEAMhu88RY/LAUa9ezCr0cREN6DxQIgZocLEmSmZFo0+vbCsZDHZhP/Uab/5m7ZZ773xDTht/CaG90AOVEsOVfXTd/pDbake6ipgR2yEgkFWudNBkruRaogai4IsxyGHSjVj9Dr6plUVFZezSsgOTS9gZHjqer5/APdGMI2KZFYJt5betJ3q6D9NIO/QDyxK0nf/4IVp/s2C7mlIRAVkzw+wV3mUT7ml3tY7zTwgkx7vTyGwOQPH8QqzFyPtVlu7wvQPnc1XjDOxICTaxtG6dQnqkNT05ZfXOHkFCNqny0bDMLurPL+5Huc+fEyjX5kCu3Y=</Value>
+				</Measurement>
+			</Results>
+		</Test>
+		<EndDateTime>Sep 25 15:57 CEST</EndDateTime>
+		<EndTestTime>1601042251</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

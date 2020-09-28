@@ -3,13 +3,15 @@
 #include "DevicesContainerInterfaces.hpp"
 #include "Device.hpp"
 
+#include <vector>
+
 namespace SmartHome
 {
 class DevicesContainer
     : public DevicesAdder
     , public DevicesGetter
 {
-    Device device;
+    std::vector<Device> devices;
 
 public:
     bool tryToAdd(Device) override;

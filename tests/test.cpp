@@ -43,18 +43,63 @@ TEST_F(OneDeviceContainerFixture, canAddAndListOneDevice)
     ASSERT_EQ(name, getter.list()[0]);
 }
 
-TEST_F(TwoDevicesContainerFixture, canAddAndListTwoDevices)
-{
-    adder.tryToAdd(device1);
-    adder.tryToAdd(device2);
-    auto list = getter.list();
-    ASSERT_EQ(name1, list[1]);
-    ASSERT_EQ(name2, list[0]);
-}
-
 TEST_F(OneDeviceContainerFixture, canGetAddedDevice)
 {
     adder.tryToAdd(device);
     ASSERT_EQ(device, getter.get(name));
 }
 
+TEST_F(TwoDevicesContainerFixture, canAddAndListTwoDevicesAlphabeticaly)
+{
+    adder.tryToAdd(device2);
+    adder.tryToAdd(device1);
+    NamesList namesList = getter.list();
+    ASSERT_EQ(name2, namesList[1]);
+    ASSERT_EQ(name1, namesList[0]);
+}
+
+TEST_F(TwoDevicesContainerFixture, cannotAddTwoEqualDevices)
+{
+    ASSERT_TRUE(adder.tryToAdd(device1));
+    ASSERT_FALSE(adder.tryToAdd(device1));
+}
+
+/*
+class DevicesFinder
+{
+    virtual void search() = 0;
+    virtual NamesList list() = 0;
+};
+
+class UnknownDevicesFinder : public DevicesFinder
+{
+
+public:
+    void search() override;
+    NamesList list() override;
+};
+*/
+/*
+using Message = std::string;
+
+class DevicesReceiver : public NetworkClientReceiver
+{
+    DevicesContainer devices;
+public:
+    void receive(Message) override;
+};
+
+void DevicesReceiver::receive(Message)
+{
+    Device device{"dev"};
+    devices.tryToAdd(device);
+}
+
+TEST(DevicesFinderFeatures, canStoreReceivedDevices)
+{
+    auto devices = findDevices();
+
+
+    
+}
+*/

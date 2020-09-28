@@ -11,13 +11,16 @@
             "includePath": [
                 "${workspaceFolder}/googletest/googletest/include",
                 "${workspaceFolder}/googletest/googlemock/include",
-                "${workspaceFolder}/CentralUnit"
+                "${workspaceFolder}"
             ],
             "compilerPath": "/usr/bin/clang++",
-            "configurationProvider": "vector-of-bool.cmake-tools",
+            //"configurationProvider": "vector-of-bool.cmake-tools",
             "compilerArgs": [
                 "-Wall",
-                "-pedantic"
+                "-pedantic",
+                "-Wextra",
+                "-Werror",
+                "-frtti"
             ],
             "cStandard": "c11",
             "cppStandard": "c++17"

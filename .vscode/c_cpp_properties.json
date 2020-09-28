@@ -7,13 +7,13 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "gcc-x64",
+            "intelliSenseMode": "clang-x64",
             "includePath": [
                 "${workspaceFolder}/googletest/googletest/include",
                 "${workspaceFolder}/googletest/googlemock/include",
                 "${workspaceFolder}/CentralUnit"
             ],
-            "compilerPath": "/usr/bin/g++",
+            "compilerPath": "/usr/bin/clang++",
             "configurationProvider": "vector-of-bool.cmake-tools",
             "compilerArgs": [
                 "-Wall",

@@ -51,7 +51,10 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "bit": "cpp"
+        "bit": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "variant": "cpp"
     },
     "C_Cpp.default.browse.path": [
         "${workspaceFolder}\\**"

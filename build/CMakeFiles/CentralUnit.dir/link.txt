@@ -1,2 +1,0 @@
-/bin/ar qc libCentralUnit.a  CMakeFiles/CentralUnit.dir/Example.cpp.o
-/bin/ranlib libCentralUnit.a

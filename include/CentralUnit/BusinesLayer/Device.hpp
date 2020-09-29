@@ -2,8 +2,6 @@
 
 #include <string>
 
-using Name = std::string;
-
 namespace SmartHome
 {
 

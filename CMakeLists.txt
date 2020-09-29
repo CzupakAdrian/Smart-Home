@@ -1,35 +1,44 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.12)
 
-set(This CentralUnit)
-
-project(${This} C CXX)
-
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(This SmartHome)
+project(${This}
+    VERSION 1.0
+    DESCRIPTION "Extendable IoT System For Smart Home"
+    LANGUAGES C CXX
+)
 
 add_compile_options(-Wall -Wextra -pedantic -Werror -frtti)
 
-enable_testing()
+option(PACKAGE_TESTS "Build the tests" ON)
 
-add_subdirectory(googletest)
+set(CU_INTERFACES_DIR
+    include/CentralUnit/Interfaces)
+file(GLOB CU_INTERFACES_HEADER CONFIGURE_DEPENDS
+    "${CU_INTERFACES_DIR}/*.hpp")
+add_library(CU_Interfaces_library STATIC
+    ${CU_INTERFACES_HEADER})
+target_include_directories(CU_Interfaces_library PUBLIC
+    ${CU_INTERFACES_DIR})
+set_target_properties(CU_Interfaces_library PROPERTIES
+    LINKER_LANGUAGE CXX)   
 
-set(Headers
-    DevicesContainerInterfaces.hpp
-    NetworkInterfaces.hpp
-    Device.hpp
-    DevicesContainer.hpp
-)
+set(CU_BL_INCLUDE_DIR
+    include/CentralUnit/BusinesLayer)
+file(GLOB CU_BL_HEADER CONFIGURE_DEPENDS
+    "${CU_BL_INCLUDE_DIR}/*.hpp")
+add_library(CU_BL_library STATIC
+    ${CU_BL_HEADER})
+target_include_directories(CU_BL_library PUBLIC
+    ${CU_BL_INCLUDE_DIR})
+set_target_properties(CU_BL_library PROPERTIES
+    LINKER_LANGUAGE CXX) 
 
-set(Sources
-    DevicesContainer.cpp
-)
+add_subdirectory(src)
 
-include_directories(tests)
-link_directories(tests)
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
-add_library(${This} STATIC ${Sources} ${Headers})
-
-set_target_properties(${This} PROPERTIES LINKER_LANGUAGE CXX)
-
-add_subdirectory(tests)
+if(PACKAGE_TESTS)
+    enable_testing()
+    include(GoogleTest)
+    add_subdirectory(tests)
+endif()

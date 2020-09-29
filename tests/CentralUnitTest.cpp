@@ -1,9 +1,12 @@
-#include "../googletest/googletest/include/gtest/gtest.h"
-#include "../NetworkInterfaces.hpp"
-#include "../DevicesContainerInterfaces.hpp"
-#include "../Device.hpp"
-#include "../DevicesContainer.hpp"
+#include "gtest/gtest.h"
+#include "gmock/gmock.h"
+#include "NetworkInterfaces.hpp"
+#include "DevicesContainerInterfaces.hpp"
+#include "Device.hpp"
+#include "DevicesContainer.hpp"
+#include "AppInterfaces.hpp"
 #include <memory>
+#include <algorithm>
 
 using namespace SmartHome;
 
@@ -64,42 +67,52 @@ TEST_F(TwoDevicesContainerFixture, cannotAddTwoEqualDevices)
     ASSERT_FALSE(adder.tryToAdd(device1));
 }
 
+
+//************************************************************
+// From now there is a problem with mocks
 /*
-class DevicesFinder
+class MockNetworkClientSender : public NetworkClientSender
 {
-    virtual void search() = 0;
-    virtual NamesList list() = 0;
+public:
+    MOCK_METHOD(void, send, (Message), (override));
 };
 
-class UnknownDevicesFinder : public DevicesFinder
+class MainDevicesKeeper : public DevicesManager
 {
+    std::shared_ptr<MockNetworkClientSender> sender;
 
 public:
-    void search() override;
-    NamesList list() override;
-};
-*/
-/*
-using Message = std::string;
-
-class DevicesReceiver : public NetworkClientReceiver
-{
-    DevicesContainer devices;
-public:
-    void receive(Message) override;
+    MainDevicesKeeper(std::shared_ptr<MockNetworkClientSender> & sender)
+    { this->sender = sender; }
+    void searchForNewDevices() override;
+    NamesList listNewDevices() override;
+    NamesList listKnownDevices() override;
 };
 
-void DevicesReceiver::receive(Message)
+void MainDevicesKeeper::searchForNewDevices()
 {
-    Device device{"dev"};
-    devices.tryToAdd(device);
+    sender->send();
 }
 
-TEST(DevicesFinderFeatures, canStoreReceivedDevices)
+NamesList MainDevicesKeeper::listNewDevices()
 {
-    auto devices = findDevices();
+    NamesList list{};
+    return list;
+}
 
+NamesList MainDevicesKeeper::listKnownDevices()
+{
+    NamesList list{};
+    return list;
+}
 
-    
+TEST(DevicesMenagerFeatures, canSearchForNewDevices)
+{
+    std::shared_ptr<MockNetworkClientSender> sender;
+    Message msg = "message1";
+    EXPECT_CALL(*sender, send(msg));
+    std::unique_ptr<DevicesManager> manager
+        = std::make_unique<MainDevicesKeeper>(sender);
+    manager->searchForNewDevices();
 }
 */

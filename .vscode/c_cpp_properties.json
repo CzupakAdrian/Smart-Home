@@ -14,7 +14,7 @@
                 "${workspaceFolder}/include/**"
             ],
             "compilerPath": "/usr/bin/clang++",
-            //"configurationProvider": "vector-of-bool.cmake-tools",
+            "configurationProvider": "vector-of-bool.cmake-tools",
             "compilerArgs": [
                 "-Wall",
                 "-pedantic",

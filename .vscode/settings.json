@@ -62,6 +62,6 @@
     "C_Cpp.default.cppStandard": "gnu++17",
     "C_Cpp.default.cStandard": "gnu11",
     "C_Cpp.default.includePath": [
-        "${workspaceFolder}\\**"
+        "${workspaceFolder}\\include\\**"
     ]
 }

@@ -67,7 +67,7 @@ TEST_F(TwoDevicesContainerFixture, cannotAddTwoEqualDevices)
     ASSERT_FALSE(adder.tryToAdd(device1));
 }
 
-
+//
 //************************************************************
 // From now there is a problem with mocks
 /*

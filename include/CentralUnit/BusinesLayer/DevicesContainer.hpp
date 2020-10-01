@@ -1,28 +1,25 @@
 #pragma once
 
-#include "BasicDefinitions.hpp"
-#include "DevicesContainerInterfaces.hpp"
 #include "Device.hpp"
 
 #include <vector>
+#include <memory>
 
 namespace SmartHome
 {
 class DevicesContainer
-    : public DevicesAdder
-    , public DevicesGetter
 {
-    std::vector<Device> devices;
+    std::vector< std::shared_ptr< Device >> devices;
 
 public:
     ~DevicesContainer() {}
-    bool tryToAdd(Device) override;
-    NamesList list() override;
-    Device get(Name) override;
+    bool tryToAdd(std::unique_ptr< Device >) ;
+    std::vector<Device> list();
+    std::weak_ptr<Device> get(Device);
 
 private:
     bool isDuplicated(Device);
+    void sortByName();
+    void sortByType();
 };
-
-inline bool operator==(const Device & lhs, const Device & rhs) { return lhs.name == rhs.name; }
 }

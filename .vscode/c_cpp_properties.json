@@ -11,10 +11,10 @@
             "includePath": [
                 "${workspaceFolder}/extern/googletest/googletest/include/**",
                 "${workspaceFolder}/extern/googletest/googlemock/include/**",
-                "${workspaceFolder}/include/**"
+                "${workspaceFolder}/include/CentralUnit/Interfaces",
+                "${workspaceFolder}/include/CentralUnit/BusinesLayer"
             ],
             "compilerPath": "/usr/bin/clang++",
-            "configurationProvider": "vector-of-bool.cmake-tools",
             "compilerArgs": [
                 "-Wall",
                 "-pedantic",
@@ -23,7 +23,8 @@
                 "-frtti"
             ],
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++17",
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4

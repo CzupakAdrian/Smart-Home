@@ -1,13 +1,10 @@
 #pragma once
 
-#include "BasicDefinitions.hpp"
-
 #include <string>
-
-using Message = std::string;
 
 namespace SmartHome
 {
+using Message = std::string;
 
 class NetworkClientSender
 {

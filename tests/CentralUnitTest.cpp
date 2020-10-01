@@ -1,40 +1,33 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 #include "NetworkInterfaces.hpp"
-#include "DevicesContainerInterfaces.hpp"
 #include "Device.hpp"
 #include "DevicesContainer.hpp"
 #include "AppInterfaces.hpp"
+#include "BasicDefinitions.hpp"
 #include <memory>
 #include <algorithm>
 
 using namespace SmartHome;
 
-struct OneDeviceContainerFixture : public testing::Test
+class DevicesManager
+    : DevicesAccesor
+    , DevicesConfigurator
 {
-    std::string name{"device 1"};
-    Device device{name};
-    DevicesContainer container{};
-    DevicesAdder & adder = container;
-    DevicesGetter & getter = container;
+
 };
 
-struct TwoDevicesContainerFixture : public testing::Test
+struct DevicesContainerFixture : public testing::Test
 {
-    std::string name1{"device 1"};
-    std::string name2{"device 2"};
-    Device device1{name1};
-    Device device2{name2};
-    DevicesContainer container{};
-    DevicesAdder & adder = container;
-    DevicesGetter & getter = container;
+    DevicesContainer sut{};
+
 };
 
 TEST(SystemTest, shouldPass)
 {
     ASSERT_TRUE(true);
 }
-
+/*
 TEST_F(OneDeviceContainerFixture, canUseTryToAddMethod)
 {
     ASSERT_TRUE(adder.tryToAdd(device));
@@ -67,10 +60,6 @@ TEST_F(TwoDevicesContainerFixture, cannotAddTwoEqualDevices)
     ASSERT_FALSE(adder.tryToAdd(device1));
 }
 
-//
-//************************************************************
-// From now there is a problem with mocks
-/*
 class MockNetworkClientSender : public NetworkClientSender
 {
 public:

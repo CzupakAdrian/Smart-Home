@@ -1,15 +1,24 @@
 #pragma once
 
-#include "BasicDefinitions.hpp"
+#include "Device.hpp"
+#include <vector>
 
 namespace SmartHome
 {
-class DevicesManager
+class DevicesAccesor
 {
 public:
-    virtual ~DevicesManager() {};
+    virtual ~DevicesAccesor() {}
+
     virtual void searchForNewDevices() = 0;
-    virtual NamesList listNewDevices() = 0;
-    virtual NamesList listKnownDevices() = 0;
+    virtual std::vector<Device> listNewDevices() = 0;
+    virtual std::vector<Device> listKnownDevices() = 0;
+};
+
+class DevicesConfigurator
+{
+public:
+    virtual ~DevicesConfigurator() {}
+    virtual bool tryToChangeName(Device, Name) = 0;
 };
 }

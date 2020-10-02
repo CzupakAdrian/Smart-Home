@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Device.hpp"
-#include <vector>
+#include <set>
 
 namespace SmartHome
 {
@@ -11,15 +11,20 @@ public:
     virtual ~DevicesAccesor() {};
 
     virtual void searchForNewDevices() = 0;
-    virtual std::vector<Device> listDevices() = 0;
-    virtual std::vector<Device> listRejectedDevices() = 0;
-};
-
-class DevicesConfigurator
-{
-public:
-    virtual ~DevicesConfigurator() {};
+    virtual std::set< Device > listDevices() = 0;
+    virtual std::set< Device > listRejectedDevices() = 0;
 
     virtual bool tryToChangeName(Device, Name) = 0;
+
+};
+
+
+class ComponentsTreeAccesor
+{
+public:
+    virtual ~ComponentsTreeAccesor() {};
+
+    virtual std::set< Component > listComponents() = 0;
+    virtual bool tryToAddDirectory(Directory, Name) = 0;
 };
 }

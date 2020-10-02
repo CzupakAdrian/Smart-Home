@@ -17,6 +17,8 @@ public:
 class NetworkClientReceiver
 {
 public:
+    virtual ~NetworkClientReceiver() {};
+
     virtual void receive(Message) = 0;
 };
 

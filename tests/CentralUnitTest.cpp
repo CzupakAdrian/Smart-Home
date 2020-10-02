@@ -6,6 +6,7 @@
 #include "DevicesManager.hpp"
 #include "AppInterfaces.hpp"
 #include "BasicDefinitions.hpp"
+#include "ComponentsTree.hpp"
 #include <memory>
 #include <algorithm>
 
@@ -19,23 +20,17 @@ struct NetworkClientSenderMock : public NetworkClientSender
 
 struct DevicesManagerFixture : public testing::Test
 {
-    testing::StrictMock<NetworkClientSenderMock> sender;
+    testing::StrictMock< NetworkClientSenderMock > sender;
     DevicesManager manager{sender};
-    DevicesConfigurator & configurator = manager;
     DevicesAccesor & accesor = manager;
     DevicesAdder & adder = manager;
     
-    void changeNameWrong(Device device, Name name)
+    bool changeName(Device device, Name name)
     {
-        ASSERT_FALSE(configurator.tryToChangeName(device, name));
+        return accesor.tryToChangeName(device, name);
     }
 
-    void changeNameWell(Device device, Name name)
-    {
-        ASSERT_TRUE(configurator.tryToChangeName(device, name));
-    }
-
-    bool exists(std::vector<Device> list, Device device)
+    bool exists(std::set< Device > list, Device device)
     {
         return std::find(list.begin(), list.end(), device)
             != list.end();
@@ -63,12 +58,12 @@ TEST(DeviceTest, equalComparisonWorks)
 
 TEST_F(DevicesManagerWithTwoDevicesFixture, changingNameToTheSameReturnsFalse)
 {
-    changeNameWrong(device1, device1.name);
+    ASSERT_FALSE(changeName(device1, device1.name));
 }
 
 TEST_F(DevicesManagerWithTwoDevicesFixture, changingNameToNonExistingOneReturnsTrue)
 {
-    changeNameWell(device1, "otherName");
+    ASSERT_TRUE(changeName(device1, "otherName"));
 }
 
 TEST_F(DevicesManagerWithTwoDevicesFixture, canAddOneDevice)
@@ -110,6 +105,36 @@ TEST_F(DevicesManagerFixture, searchForDevicesCallsNetworkSender)
     EXPECT_CALL(sender, send(searchReq));
     accesor.searchForNewDevices();
 }
+
+
+TEST(ComponentsTreeTest, canAddDirectory)
+{
+    ComponentsTree tree{};
+    ComponentsTreeAccesor & sut = tree;
+    ASSERT_TRUE(sut.tryToAddDirectory({"aa"}, {}));
+}
+
+bool exists(std::set< Component > list, Component & component)
+{
+    return std::find(list.begin(), list.end(), component)
+        != list.end();
+}
+
+//implenet tests that check if making changes in listed components and devices
+// do no changes in the original instances
+
+TEST(ComponentsTreeTest, canListTwoAddedDirectories)
+{
+    ComponentsTree tree{};
+    ComponentsTreeAccesor & sut = tree;
+    Directory dir1{"dir1"};
+    Directory dir2{"dir2"};
+    sut.tryToAddDirectory({"aa"}, "dir1");
+    sut.tryToAddDirectory({"aa"}, "dir2");
+    ASSERT_TRUE(exists(sut.listComponents(), dir1));
+    ASSERT_TRUE(exists(sut.listComponents(), dir2));
+}
+
 /*
 TEST_F(DevicesManagerFixture, rejectedDevicesListIsClearedBeforeSearch)
 {

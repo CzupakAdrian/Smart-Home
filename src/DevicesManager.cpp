@@ -4,15 +4,21 @@
 
 namespace SmartHome
 {
+
+DevicesManager::DevicesManager(NetworkClientSender & sender)
+    : sender(sender)
+{
+}
+
 bool DevicesManager::tryToAdd(Device device)
 {
-    if( exists(device) and not isEmpty())
+    if(exists(device) and not isEmpty())
     {
-        rejectedDevices.push_back(device);
+        rejectedDevices.insert(device);
         return false;
     }
 
-    devices.push_back(device); 
+    devices.insert(device); 
     return true;
 }
 
@@ -28,14 +34,17 @@ bool DevicesManager::tryToAdd(Device device)
     }
 
 
-void DevicesManager::searchForNewDevices() {}
+void DevicesManager::searchForNewDevices()
+{
+    sender.send(searchReq);
+}
 
-std::vector< Device > DevicesManager::listDevices()
+std::set< Device > DevicesManager::listDevices()
 {
     return devices;
 }
 
-std::vector< Device > DevicesManager::listRejectedDevices()
+std::set< Device > DevicesManager::listRejectedDevices()
 {
     return rejectedDevices;
 }

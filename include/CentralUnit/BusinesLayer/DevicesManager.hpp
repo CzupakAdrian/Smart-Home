@@ -5,7 +5,7 @@
 #include "Device.hpp"
 
 #include <memory>
-#include <vector>
+#include <set>
 
 
 namespace SmartHome
@@ -22,18 +22,18 @@ public:
 
 class DevicesManager
     : public DevicesAccesor
-    , public DevicesConfigurator
     , public DevicesAdder
 {
-    std::vector< Device > devices;
-    std::vector< Device > rejectedDevices;
+    NetworkClientSender & sender;
+    std::set< Device > devices;
+    std::set< Device > rejectedDevices;
 
 public:
-    DevicesManager(NetworkClientSender & sender);
+    DevicesManager(NetworkClientSender &);
 
     void searchForNewDevices() override;
-    std::vector< Device > listDevices() override;
-    std::vector< Device > listRejectedDevices() override;
+    std::set< Device > listDevices() override;
+    std::set< Device > listRejectedDevices() override;
     bool tryToChangeName(Device, Name) override;
     bool tryToAdd(Device) override;
 

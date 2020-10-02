@@ -6,7 +6,7 @@
 #include "DevicesManager.hpp"
 #include "AppInterfaces.hpp"
 #include "BasicDefinitions.hpp"
-#include "ComponentsTree.hpp"
+#include "Directory.hpp"
 #include <memory>
 #include <algorithm>
 
@@ -107,33 +107,38 @@ TEST_F(DevicesManagerFixture, searchForDevicesCallsNetworkSender)
 }
 
 
-TEST(ComponentsTreeTest, canAddDirectory)
-{
-    ComponentsTree tree{};
-    ComponentsTreeAccesor & sut = tree;
-    ASSERT_TRUE(sut.tryToAddDirectory({"aa"}, {}));
-}
 
-bool exists(std::set< Component > list, Component & component)
+bool exists(std::set< Directory > list, Directory & directory)
 {
-    return std::find(list.begin(), list.end(), component)
+    return std::find(list.begin(), list.end(), directory)
         != list.end();
 }
 
-//implenet tests that check if making changes in listed components and devices
+TEST(ComponentsTreeTest, canAddDirectory)
+{
+    Directory mainDir{"mainDir"};
+    ComponentsTreeAccesor & sut = mainDir;
+    Directory dir1{"dir1"};
+    ASSERT_TRUE(sut.tryToAdd(dir1));
+}
+
+//implement tests that check if making changes in listed components and devices
 // do no changes in the original instances
 
-TEST(ComponentsTreeTest, canListTwoAddedDirectories)
+TEST(ComponentsTreeTest, canListAddedDirectories)
 {
-    ComponentsTree tree{};
-    ComponentsTreeAccesor & sut = tree;
+    Directory mainDir{"mainDir"};
+    ComponentsTreeAccesor & sut = mainDir;
     Directory dir1{"dir1"};
     Directory dir2{"dir2"};
-    sut.tryToAddDirectory({"aa"}, "dir1");
-    sut.tryToAddDirectory({"aa"}, "dir2");
-    ASSERT_TRUE(exists(sut.listComponents(), dir1));
-    ASSERT_TRUE(exists(sut.listComponents(), dir2));
+    sut.tryToAdd(dir1);
+    sut.tryToAdd(dir2);
+    auto list = sut.listDirectories();
+    ASSERT_TRUE(exists(list, dir1));
+    ASSERT_TRUE(exists(list, dir2));
 }
+
+//TEST(ComponentsTreeTest, canAddDirectoryOneToAnother)
 
 /*
 TEST_F(DevicesManagerFixture, rejectedDevicesListIsClearedBeforeSearch)

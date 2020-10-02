@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Directory.hpp"
 #include "AppInterfaces.hpp"
 #include "NetworkInterfaces.hpp"
 #include "Device.hpp"

@@ -10,6 +10,7 @@ class NetworkClientSender
 {
 public:
     virtual ~NetworkClientSender() {};
+    
     virtual void send(Message) = 0;
 };
 
